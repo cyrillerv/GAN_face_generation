@@ -16,7 +16,7 @@ if __name__ == "__main__":
     conf = Config()
     download_data(conf.dataroot)
 
-    dataloader = load_data(conf.dataroot, conf.dataset_size, conf.image_size, conf.batch_size, conf.workers)
+    dataloader = load_data(conf.dataroot, conf.dataset_size, conf.image_size, conf.batch_size, conf.workers, reset=False)
 
     netG = Generator(conf.ngpu, conf.nz, conf.ngf, conf.nc).to(conf.device)
     netD = Discriminator(conf.ngpu, conf.ndf, conf.nc).to(conf.device)

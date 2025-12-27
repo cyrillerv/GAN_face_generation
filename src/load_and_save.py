@@ -6,8 +6,8 @@ import re
 import glob
 from src.models import weights_init
 
-def load_model(checkpoint_path, netG, netD, optimizerD, optimizerG) :
-    if os.path.exists(checkpoint_path) and False:
+def load_model(checkpoint_path, netG, netD, optimizerD, optimizerG, reset=False) :
+    if os.path.exists(checkpoint_path) and not reset :
         print(f"Chargement du checkpoint : {checkpoint_path}")
         checkpoint = torch.load(checkpoint_path)
         netG.load_state_dict(checkpoint['netG_state_dict'])
